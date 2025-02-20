@@ -1304,8 +1304,47 @@ button {
   margin: 0 auto;
   max-width: var(--max-width);
   padding: 0 8px 20px;
-  width: 100%
+  width: 82%;
+  /* Добавляем стильные границы */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+
+  /* Добавляем тень для красивого эффекта */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+
 }
+
+.AppPage_containers ul {
+  width: 100%;
+  /* Список занимает всю ширину */
+  flex-basis: 100%;
+  /* Если flex-родитель, заставляем занимать всю строку */
+  display: block;
+  /* Делаем список блочным */
+  padding-left: 20px;
+  /* Оставляем отступ для маркеров */
+
+  list-style-type: disc;
+  /* Включаем точки */
+  padding-left: 20px;
+  /* Добавляем отступ слева, чтобы точки были видны */
+}
+
+.AppPage_containers ol {
+  width: 100%;
+  /* Список занимает всю ширину */
+  flex-basis: 100%;
+  /* Если flex-родитель, заставляем занимать всю строку */
+  display: block;
+  /* Делаем список блочным */
+  padding-left: 20px;
+  /* Оставляем отступ для маркеров */
+  list-style-type: decimal;
+  padding-left: 20px;
+  /* Добавляем отступ слева, чтобы точки были видны */
+ }
+
 
 .AppPage.AppPage--index .AppPage_containers.containers--default {
   padding: 64px 16px 16px
