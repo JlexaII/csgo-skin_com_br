@@ -930,48 +930,34 @@
   <script>
     const listContainer = document.querySelector('.Winnings_list-container');
 
-    let isDown = false;
-    let startX;
-    let scrollLeft;
+    function autoScroll() {
+      if (!listContainer) return;
 
-    // Для мыши (ПК)
-    listContainer.addEventListener('mousedown', (e) => {
-      isDown = true;
-      listContainer.classList.add('active');
-      startX = e.pageX - listContainer.offsetLeft;
-      scrollLeft = listContainer.scrollLeft;
-    });
+      let scrollSpeed = 1; // Скорость скролла (чем больше, тем быстрее)
 
-    listContainer.addEventListener('mouseleave', () => {
-      isDown = false;
-      listContainer.classList.remove('active');
-    });
+      function scrollStep() {
+        if (listContainer.scrollLeft + listContainer.clientWidth >= listContainer.scrollWidth) {
+          // Если дошли до конца — возвращаемся в начало
+          listContainer.scrollLeft = 0;
+        } else {
+          // Иначе продолжаем плавный скролл
+          listContainer.scrollLeft += scrollSpeed;
+        }
+      }
 
-    listContainer.addEventListener('mouseup', () => {
-      isDown = false;
-      listContainer.classList.remove('active');
-    });
+      // Запускаем интервал для плавного движения
+      let scrollInterval = setInterval(scrollStep, 10); // Чем меньше, тем плавнее
 
-    listContainer.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - listContainer.offsetLeft;
-      const walk = (x - startX) * 2; // Скорость скролла
-      listContainer.scrollLeft = scrollLeft - walk;
-    });
+      // Останавливаем скролл при наведении (если нужно)
+      listContainer.addEventListener('mouseenter', () => clearInterval(scrollInterval));
+      listContainer.addEventListener('mouseleave', () => {
+        scrollInterval = setInterval(scrollStep, 10);
+      });
+    }
 
-    // Для сенсорных экранов (мобильные устройства)
-    listContainer.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].pageX - listContainer.offsetLeft;
-      scrollLeft = listContainer.scrollLeft;
-    });
+    // Запускаем функцию после загрузки страницы
+    window.onload = autoScroll;
 
-    listContainer.addEventListener('touchmove', (e) => {
-      e.preventDefault(); // Предотвращает стандартную прокрутку страницы
-      const x = e.touches[0].pageX - listContainer.offsetLeft;
-      const walk = (x - startX) * 2; // Скорость скролла
-      listContainer.scrollLeft = scrollLeft - walk;
-    });
   </script>
 </body>
 
