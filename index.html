@@ -871,6 +871,7 @@
                 </p>
               </div>
             </section>
+            <br>
           </div>
         </main>
         <footer class="AppFooter" id="AppFooter">
@@ -924,6 +925,55 @@
       </div>
     </div>
   </div>
+
+
+  <script>
+    const listContainer = document.querySelector('.Winnings_list-container');
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    // Для мыши (ПК)
+    listContainer.addEventListener('mousedown', (e) => {
+      isDown = true;
+      listContainer.classList.add('active');
+      startX = e.pageX - listContainer.offsetLeft;
+      scrollLeft = listContainer.scrollLeft;
+    });
+
+    listContainer.addEventListener('mouseleave', () => {
+      isDown = false;
+      listContainer.classList.remove('active');
+    });
+
+    listContainer.addEventListener('mouseup', () => {
+      isDown = false;
+      listContainer.classList.remove('active');
+    });
+
+    listContainer.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - listContainer.offsetLeft;
+      const walk = (x - startX) * 2; // Скорость скролла
+      listContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    // Для сенсорных экранов (мобильные устройства)
+    listContainer.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].pageX - listContainer.offsetLeft;
+      scrollLeft = listContainer.scrollLeft;
+    });
+
+    listContainer.addEventListener('touchmove', (e) => {
+      e.preventDefault(); // Предотвращает стандартную прокрутку страницы
+      const x = e.touches[0].pageX - listContainer.offsetLeft;
+      const walk = (x - startX) * 2; // Скорость скролла
+      listContainer.scrollLeft = scrollLeft - walk;
+    });
+  </script>
 </body>
+
 
 </html>
