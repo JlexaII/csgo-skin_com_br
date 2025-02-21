@@ -1,6 +1,0 @@
-git init  # Инициализация репозитория (если не создан)
-git remote add origin https://github.com/JlexaII/csgo-skin_com_br.git  # Указать репозиторий
-git add .  # Добавить все файлы
-git commit -m "Первый коммит"  # Закоммитить изменения
-git branch -M main  # Переименовать главную ветку (если нужно)
-git push -u origin main  # Отправить файлы в репозиторий

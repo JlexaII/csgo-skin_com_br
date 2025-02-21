@@ -1331,6 +1331,39 @@ button {
   /* Добавляем отступ слева, чтобы точки были видны */
 }
 
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table thead {
+  background-color: #007bff;
+  color: white;
+  text-transform: uppercase;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  color: #007bff;
+}
+
+.styled-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #e9ecef;
+  transition: 0.3s;
+}
+
 .AppPage_containers ol {
   width: 100%;
   /* Список занимает всю ширину */
@@ -1343,7 +1376,7 @@ button {
   list-style-type: decimal;
   padding-left: 20px;
   /* Добавляем отступ слева, чтобы точки были видны */
- }
+}
 
 
 .AppPage.AppPage--index .AppPage_containers.containers--default {
