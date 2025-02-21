@@ -1352,15 +1352,15 @@ button {
 .styled-table td {
   padding: 12px 15px;
   border: 1px solid #ddd;
-  color: #007bff;
+
 }
 
 .styled-table tbody tr:nth-child(even) {
-  background-color: #f8f9fa;
+  background-color: #6e8cab;
 }
 
 .styled-table tbody tr:hover {
-  background-color: #e9ecef;
+  background-color: #007bff;
   transition: 0.3s;
 }
 
