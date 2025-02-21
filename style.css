@@ -1304,7 +1304,7 @@ button {
   margin: 0 auto;
   max-width: var(--max-width);
   padding: 0 8px 20px;
-  width: 82%;
+  width: 88%;
   /* Добавляем стильные границы */
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
